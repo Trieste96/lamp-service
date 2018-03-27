@@ -15,8 +15,6 @@ services:
     httpd-php:
         build:
             context: "./Apache 2.4 PHP 5.6"
-        links:
-            - mysql56:mysql
         ports:
             - "80:80"
         tty: 'true'
