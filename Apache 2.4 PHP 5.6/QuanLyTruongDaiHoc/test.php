@@ -24,7 +24,7 @@
 
 		</form>
 		<?php
-			$checkconnect=mysql_connect("localhost","root","") or die("Khong the ket noi co so du lieu!");
+			$checkconnect=mysql_connect("172.18.0.2","root","") or die("Khong the ket noi co so du lieu!");
 			$db=mysql_select_db("web2");
 			$sql="select * from sinh_vien";
 			$connect =mysql_query($sql);

@@ -8,6 +8,9 @@ services:
             MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
         volumes:
             - db-data:/var/lib/mysql/data
+        networks:
+            app_net:
+                ipv4_address: 172.18.0.2
         tty: 'true'
     httpd-php:
         build:

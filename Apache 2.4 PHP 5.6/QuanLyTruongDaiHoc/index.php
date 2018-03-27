@@ -3,7 +3,7 @@
 	<?php
 		session_start();
 		header('Content-Type: text/html; charset=utf-8');
-		mysql_connect("localhost","root","");
+		mysql_connect("172.18.0.2","root","");
 		mysql_select_db("web2");
 		mysql_set_charset("UTF-8");
 		mysql_query("set names 'utf8'");
