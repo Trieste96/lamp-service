@@ -12,3 +12,5 @@ RUN rpm -Uvh http://vault.centos.org/7.0.1406/extras/x86_64/Packages/epel-releas
 
 #Install Redis
 RUN yum install -y epel-release && yum install -y redis
+
+ADD QuanLyTruongDaiHoc/ /var/www/html/
