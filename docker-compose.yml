@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
     mysql56:
         build:
@@ -8,18 +8,18 @@ services:
             MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
         volumes:
             - db-data:/var/lib/mysql/data
-        tty: 'true'
+        tty: true
     httpd-php:
         build:
             context: "./Apache24_PHP56_Redis"
         ports:
             - "80:80"
-        tty: 'true'
+        tty: true
     tomcat:
         build:
             context: "./Tomcat 8"
         ports:
             - "8080:8080"
-        tty: 'true'
+        tty: true
 volumes: 
     db-data:

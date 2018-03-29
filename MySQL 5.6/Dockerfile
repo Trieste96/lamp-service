@@ -6,5 +6,3 @@ RUN rpm -Uvh http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm \
 ADD web2.sql /sql/
 
 EXPOSE 3306
-
-CMD ["mysqld_safe","--skip-grant-tables"]
