@@ -11,5 +11,3 @@ RUN wget http://mirror.downloadvn.com/apache/tomcat/tomcat-8/v8.0.50/bin/apache-
 ADD ./tomcat.service /etc/systemd/system/tomcat.service
 
 EXPOSE 8080
-
-CMD ["/opt/tomcat/bin/startup.sh"]

@@ -25,7 +25,7 @@
 			</tr>
 			<?php
 				$sql="select * from giang_vien";
-				$result = mysql_query($sql);
+				$result = mysqli_query($sql);
 				while($row=mysql_fetch_assoc($result) )
 				{
 					echo "<tr cellspacing=1>";
@@ -76,7 +76,7 @@
 	$diachi=$_POST['diachi'];
 	$malop = $_POST['malop'];
 	$sql="insert into giang_vien(MaGV,Ho,Ten,SoDT,DiaChi) values ('$magv','$ho','$ten','$sodt','$diachi')";
-	if(!mysql_query($sql)) die ("Lỗi : không thêm giáo viên được");
+	if(!mysqli_query($sql)) die ("Lỗi : không thêm giáo viên được");
 	echo "Đã thêm giáo viên mới <br>";
 	$URL="index.php?page=qlgv&user=$user";
 	header("location:$URL");
@@ -90,10 +90,10 @@
 	$sql1="update lop set MaGV='null' where MaGV = $magv";
 	$sql2="delete from giang_vien where MaGV='$magv'";
 	$set1="SET FOREIGN_KEY_CHECKS=1";
-	mysql_query($set0);
-	mysql_query($sql1);
-	mysql_query($sql2);
-	mysql_query($set1);
+	mysqli_query($set0);
+	mysqli_query($sql1);
+	mysqli_query($sql2);
+	mysqli_query($set1);
 	$URL="index.php?page=qlgv&user=$user";
 	header("location:$URL");
 }
@@ -108,7 +108,7 @@
 	$sodt = $_POST['sdt'];
 	$diachi=$_POST['diachi'];
 	$sql="update giang_vien set Ho='$ho', Ten='$ten', Sodt='$sodt', DiaChi='$diachi' where MaGV='$magv'";
-	if(!mysql_query($sql)) 
+	if(!mysqli_query($sql)) 
 		die ("Không update được");
 	echo"Đã update";
 	$URL="index.php?page=qlgv&user=$user";

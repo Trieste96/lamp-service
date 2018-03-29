@@ -16,10 +16,10 @@
 
 		</form>
 		<?php
-			$checkconnect=mysql_connect("localhost","root","") or die("Khong the ket noi co so du lieu!");
+			$checkconnect=mysql_connect("172.17.0.3","root","") or die("Khong the ket noi co so du lieu!");
 			$db=mysql_select_db("web2");
 			$sql="select * from sinh_vien";
-			$connect =mysql_query($sql);
+			$connect =mysqli_query($sql);
 		?>
 		<?php
 			$user=$_GET['user'];
@@ -29,7 +29,7 @@
 				$pass1= $_POST["password1"];
 				$pass2= $_POST["password2"];
 				$statment="Select * from tai_khoan where TenDangNhap='$user'" ;
-				$result= mysql_query($statment);
+				$result= mysqli_query($statment);
 				$row=mysql_fetch_assoc($result);
 				$check=$row['MatKhau'];
 				if($check != $pass){
@@ -42,7 +42,7 @@
 					if($check==$pass && $pass != $pass1 && $pass1==$pass2 && $pass!="" && $pass1!="" && $pass2!=""  ) 
 					{
 						$statment="UPDATE `tai_khoan` SET MatKhau='$pass1' where TenDangNhap='$user'" ;
-						$result= mysql_query($statment);
+						$result= mysqli_query($statment);
 						echo "<script >";
 						echo "alert('Đổi mật khẩu thành công!');";   
 						echo "</script>";

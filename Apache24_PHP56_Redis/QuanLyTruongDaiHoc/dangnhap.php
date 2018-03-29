@@ -27,7 +27,7 @@
 
 		</form>
 		<?php
-			$checkconnect=mysqli_connect("localhost","root","") or die("Khong the ket noi co so du lieu!");
+			$checkconnect=mysqli_connect("172.17.0.3","root","") or die("Khong the ket noi co so du lieu!");
 			$db=mysqli_select_db($checkconnect,"web2");
 			$sql="select * from sinh_vien";
 			$connect =mysqli_query($checkconnect,$sql);
@@ -38,7 +38,7 @@
 				$user= $_POST["username"];
 				$pass= $_POST["password"];
 				$statment="Select * from tai_khoan where TenDangNhap='$user' and MatKhau='$pass'" ;
-				$result= mysqli_query($statment);
+				$result= mysqli_query($checkconnect,$statment);
 				if(! $result){
 					echo "<script >";
 					echo "alert('Tài khoản không có dấu! Vui lòng nhập lại');";    

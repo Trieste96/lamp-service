@@ -19,7 +19,7 @@
 			</tr>
 			<?php
 				$sql="select MaLop, l.MaGV as MaGV, concat(Ho,' ',Ten) as HoTenGV from lop l left join giang_vien gv on (l.MaGV=gv.MaGV) order by MaLop asc";
-				$result = mysql_query($sql);
+				$result = mysqli_query($checkconnect,$sql);
 				while($row=mysql_fetch_assoc($result) )
 				{
 					echo "<tr cellspacing=1>";
@@ -49,7 +49,7 @@
 		<td>Tên GV 
 			<select name='magv' form='lop'>
 				<?php
-					$result=mysql_query("select distinct MaGV, concat(Ho,' ',Ten) as HoTen from giang_vien");
+					$result=mysqli_query("select distinct MaGV, concat(Ho,' ',Ten) as HoTen from giang_vien");
 					echo "<option value='null'></option>";
 					while($row=mysql_fetch_assoc($result))
 					{
@@ -68,7 +68,7 @@
 	$magv = $_POST['magv'];
 	$malop = $_POST['malop'];
 	$sql="insert into `lop`(`MaLop`,`MaGV`) values('$malop',$magv)";
-	echo $kq=mysql_query($sql);
+	echo $kq=mysqli_query($sql);
 	if(!$kq) die ("Lỗi : không thêm lớp được");
 	echo "Đã thêm lớp mới <br>";
 	$URL="index.php?page=qll&user=$user";
@@ -82,11 +82,11 @@
 	$sql="update sinh_vien set MaLop='null' where MaLop='$malop'";
 	$sql1="delete from lop where MaLop='$malop'";
 	$set1="set foregin_key_checks=1";
-	mysql_query($set0);
-	mysql_query($sql);
-	mysql_query($sql1);
-	mysql_query($set1);
-	if(!mysql_query($sql1)) 
+	mysqli_query($set0);
+	mysqli_query($sql);
+	mysqli_query($sql1);
+	mysqli_query($set1);
+	if(!mysqli_query($sql1)) 
 		die ("Không xoá được");
 	echo"Đã xoá";
 	$URL="index.php?page=qll&user=$user";
@@ -100,10 +100,10 @@
 	$set0="set foregin_key_checks=0";
 	$sql="update lop set MaLop='$malop', MaGV='$magv' where MaLop='$malop'";
 	$set1="set foregin_key_checks=1";
-	mysql_query($set0);
-	mysql_query($sql);
-	mysql_query($set1);
-	if(!mysql_query($sql)) 
+	mysqli_query($set0);
+	mysqli_query($sql);
+	mysqli_query($set1);
+	if(!mysqli_query($sql)) 
 		die ("Không update được");
 	echo"Đã update";
 	$URL="index.php?page=qll&user=$user";

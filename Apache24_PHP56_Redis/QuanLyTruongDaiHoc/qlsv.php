@@ -28,7 +28,7 @@
 			</tr>
 			<?php
 				$sql="select * from sinh_vien";
-				$result = mysql_query($sql);
+				$result = mysqli_query($checkconnect,$sql);
 				while($row=mysql_fetch_assoc($result) )
 				{
 					echo "<tr cellspacing=1>";
@@ -67,7 +67,7 @@
 		<td>Mã lớp
 			<select name='malop' form='sv' required>
 				<?php
-					$result=mysql_query("select distinct MaLop from lop");
+					$result=mysqli_query("select distinct MaLop from lop");
 					echo "<option value='null'></option>";
 					while($row=mysql_fetch_assoc($result))
 					{
@@ -95,7 +95,7 @@
 	$sodt = $_POST['sdt'];
 	$quequan=$_POST['quequan'];
 	$sql="insert into sinh_vien(MaSv,MaLop,Ho,Ten,Sodt,QueQuan) values ('$masv','$malop','$ho','$ten','$sodt','$quequan')";
-	if(!mysql_query($sql)) die ("Lỗi : không thêm sinh viên được");
+	if(!mysqli_query($sql)) die ("Lỗi : không thêm sinh viên được");
 	echo "Đã thêm sinh viên mới <br>";
 	$URL="index.php?page=qlsv&user=$user";
 	header("location:$URL");
@@ -106,7 +106,7 @@
 	$masv = $_POST['masv'];
 	$malop=$_POST['malop'];
 	$sql="delete from sinh_vien where MaSV='$masv'";
-	if(!mysql_query($sql)) die("Lỗi, không xóa được");
+	if(!mysqli_query($sql)) die("Lỗi, không xóa được");
 	echo"Đã xóa";
 	$URL="index.php?page=qlsv&user=$user";
 	header("location:$URL");
@@ -121,7 +121,7 @@
 	$sodt = $_POST['sdt'];
 	$quequan=$_POST['quequan'];
 	$sql="update sinh_vien set Ho='$ho', Ten='$ten', MaLop='$malop', Sodt='$sodt', QueQuan='$quequan' where MaSV='$masv'";
-	if(!mysql_query($sql)) 
+	if(!mysqli_query($sql)) 
 		die ("Không update được");
 	echo"Đã update";
 	$URL="index.php?page=qlsv&user=$user";

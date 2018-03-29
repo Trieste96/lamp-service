@@ -20,6 +20,4 @@ RUN yum -y update \
 #Install Redis
 RUN yum install -y redis
 
-ADD QuanLyTruongDaiHoc/ /var/www/html/
-
-CMD ["httpd"]
+ADD QuanLyTruongDaiHoc/ /var/www/html/QLDH

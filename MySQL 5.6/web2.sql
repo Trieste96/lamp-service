@@ -15,7 +15,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+SET NAMES utf8mb4 ;
 
 --
 -- Database: `web2`
@@ -48,11 +48,11 @@ TRUNCATE TABLE `giang_vien`;
 --
 
 INSERT INTO `giang_vien` (`MaGV`, `Ho`, `Ten`, `SoDT`, `DiaChi`) VALUES
-('1', 'Nguyễn', 'Hoà', '02341232', '1 3/2'),
-('2', 'Nguyễn Minh', 'Thi', '0987654321', '3 Trường Sa'),
-('3', 'Huỳnh Nhựt', 'Đông', '0975318642', '3 Hoàng Sa'),
-('4', 'Nguyễn Đăng', 'Quan', '024683579', '4 Lò Gốm'),
-('5', 'Tô Hoài', 'Việt', '', '');
+('1', N'Nguyễn', N'Hoà', '02341232', N'1 3/2'),
+('2', N'Nguyễn Minh', N'Thi', '0987654321', N'3 Trường Sa'),
+('3', N'Huỳnh Nhựt', N'Đông', '0975318642', N'3 Hoàng Sa'),
+('4', N'Nguyễn Đăng', N'Quan', '024683579', N'4 Lò Gốm'),
+('5', N'Tô Hoài', N'Việt', '', '');
 
 -- --------------------------------------------------------
 

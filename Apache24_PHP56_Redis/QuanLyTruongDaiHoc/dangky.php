@@ -17,10 +17,10 @@
 
 		</form>
 		<?php
-			$checkconnect=mysql_connect("localhost","root","") or die("Khong the ket noi co so du lieu!");
+			$checkconnect=mysql_connect("172.17.0.3","root","") or die("Khong the ket noi co so du lieu!");
 			$db=mysql_select_db("web2");
 			$sql="select * from sinh_vien";
-			$connect =mysql_query($sql);
+			$connect =mysqli_query($sql);
 		?>
 		<?php
 			if(isset($_POST['xacnhan']))	
@@ -30,7 +30,7 @@
 				$pass= $_POST["password"];
 				$pass1= $_POST["password1"];
 				$statment2="Select * from tai_khoan where TenDangNhap='$user'" ;
-				$result= mysql_query($statment2);
+				$result= mysqli_query($statment2);
 				if(! $result){
 					echo "<script >";
 					echo "alert('Tài khoản không có dấu! Vui lòng nhập lại');";    
@@ -55,7 +55,7 @@
 						else
 						{
 							$statment="INSERT INTO `web2`.`tai_khoan` (`TenDangNhap`,`MatKhau`) VALUES ('$user','$pass') ";
-							$result= mysql_query($statment) or die(mysql_error());
+							$result= mysqli_query($statment) or die(mysql_error());
 							$URL="dangnhap.php?checkdangky=1";
 							header ("Location: $URL");
 						} 
